@@ -17,15 +17,16 @@ def webhook():
         "Authorization": f"Bearer {OPENROUTER_API_KEY}",
         "Content-Type": "application/json"
     }
-  payload = {
-    "model": "openchat/openchat-3.5",
-    "messages": [
-        {"role": "system", "content": "You are a helpful and friendly assistant."},
-        {"role": "user", "content": "Hello"},
-        {"role": "assistant", "content": "Hi! How can I help you today?"},
-        {"role": "user", "content": user_message}
-    ]
-}
+    
+    payload = {
+        "model": "openchat/openchat-3.5",
+        "messages": [
+            {"role": "system", "content": "You are a helpful and friendly assistant."},
+            {"role": "user", "content": "Hello"},
+            {"role": "assistant", "content": "Hi! How can I help you today?"},
+            {"role": "user", "content": user_message}
+        ]
+    }
 
     try:
         response = requests.post(
@@ -46,6 +47,7 @@ def webhook():
         })
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
+    port = int(os.environ.get("PORT", 5000))  # Fix indentation here
     app.run(host="0.0.0.0", port=port)
-       
+
+   
