@@ -1,12 +1,12 @@
-#reate a basic Python Flask project for Dialogflow + OpenRouter webhook
-import os
-# main.py file
-main_py = """from flask import Flask, request, jsonify
+rom flask import Flask, request, jsonify
 import requests
+import os
+from dotenv import load_dotenv
 
+load_dotenv()
 app = Flask(_name_)
 
-OPENROUTER_API_KEY = "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"  # <-- Replace with your OpenRouter API key
+OPENROUTER_API_KEY = os.getenv("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")
 
 @app.route("/webhook", methods=["POST"])
 def webhook():
@@ -44,19 +44,6 @@ def webhook():
         })
 
 if _name_ == "_main_":
-    app.run(debug=True, port=5000)
-"""
-
-# requirements.txt file
-requirements_txt = """flask
-requests
-"""
-
-# Write files
-with open(f"{project_path}/main.py", "w") as f:
-    f.write(main_py)
-
-with open(f"{project_path}/requirements.txt", "w") as f:
-    f.write(requirements_txt)
-
-project_path
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
+       
