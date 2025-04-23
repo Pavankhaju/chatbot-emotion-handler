@@ -17,8 +17,7 @@ def webhook():
         "Authorization": f"Bearer {OPENROUTER_API_KEY}",
         "Content-Type": "application/json"
     }
-
-   payload = {
+  payload = {
     "model": "openchat/openchat-3.5",
     "messages": [
         {"role": "system", "content": "You are a helpful and friendly assistant."},
