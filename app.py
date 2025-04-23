@@ -18,12 +18,15 @@ def webhook():
         "Content-Type": "application/json"
     }
 
-    payload = {
-        "model": "openchat/openchat-3.5",
-        "messages": [
-            {"role": "user", "content": user_message}
-        ]
-    }
+   payload = {
+    "model": "openchat/openchat-3.5",
+    "messages": [
+        {"role": "system", "content": "You are a helpful and friendly assistant."},
+        {"role": "user", "content": "Hello"},
+        {"role": "assistant", "content": "Hi! How can I help you today?"},
+        {"role": "user", "content": user_message}
+    ]
+}
 
     try:
         response = requests.post(
