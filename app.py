@@ -1,11 +1,5 @@
 #reate a basic Python Flask project for Dialogflow + OpenRouter webhook
-
 import os
-
-project_path = "/mnt/data/dialogflow-openrouter-python"
-
-os.makedirs(project_path, exist_ok=True)
-
 # main.py file
 main_py = """from flask import Flask, request, jsonify
 import requests
