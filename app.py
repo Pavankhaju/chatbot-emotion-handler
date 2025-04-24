@@ -4,7 +4,7 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()
-app = Flask(_name_)
+app = Flask(__name__)
 
 # API key environment se uthao
 OPENROUTER_API_KEY = os.getenv("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")
@@ -66,7 +66,7 @@ def webhook():
             "fulfillmentText": "Kuch error ho gaya bhai, baad me try karo."
         })
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
    
