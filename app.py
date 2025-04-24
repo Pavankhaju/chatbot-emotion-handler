@@ -7,11 +7,23 @@ load_dotenv()
 app = Flask(__name__)
 
 OPENROUTER_API_KEY = os.getenv("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")
+user_sessions={}
 
 @app.route("/webhook", methods=["POST"])
 def webhook():
     req_data = request.get_json()
     user_message = req_data['queryResult']['queryText']
+    session_id=req_data['session']
+    if session_id not in user_sessions:
+        user_sessions[session_id] = [
+            {"role": "system", "content": "Aap ek madadgar aur friendly assistant hain."}
+        ]
+
+    # Is session ke liye conversation history
+    conversation_history = user_sessions[session_id]
+
+    # User ka message conversation history me add karo
+    conversation_history.append({"role": "user", "content": user_message})
 
     headers = {
         "Authorization": f"Bearer {OPENROUTER_API_KEY}",
@@ -31,6 +43,7 @@ def webhook():
             json=payload
         )
         response.raise_for_status()
+        api_response = response.json()
         print("API Response:", response.json())
         bot_reply = response.json()['choices'][0]['message']['content']
         
