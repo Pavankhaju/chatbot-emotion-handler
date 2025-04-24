@@ -20,12 +20,12 @@ def webhook():
     
     payload = {
         "model": "openchat/openchat-3.5",
-        "messages": conversation_history [
+        "messages": conversation_history 
             {"role": "system", "content": "You are a helpful and friendly assistant."},
             {"role": "user", "content": "Hello"},
             {"role": "assistant", "content": "Hi! How can I help you today?"},
             {"role": "user", "content": user_message}
-        ]
+        
     }
 
     try:
