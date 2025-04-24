@@ -14,7 +14,7 @@ def webhook():
     user_message = req_data['queryResult']['queryText']
 
     headers = {
-        "Authorization": f"Bearer {OPENROUTER_API_KEY}",
+        "Authorization": f"Bearer {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}",
         "Content-Type": "application/json"
     }
     
