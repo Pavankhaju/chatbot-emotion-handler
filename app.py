@@ -35,7 +35,10 @@ def webhook():
             json=payload
         )
         response.raise_for_status()
+        print("API Response:", response.json())
         bot_reply = response.json()['choices'][0]['message']['content']
+        
+        conversation_history.append({"role": "assistant", "content": bot_reply})
 
         return jsonify({
             "fulfillmentText": bot_reply
