@@ -24,6 +24,7 @@ def webhook():
 
     # User ka message conversation history me add karo
     conversation_history.append({"role": "user", "content": user_message})
+    conversation_history.append({"role": "user", "content": bot_reply})
 
     headers = {
         "Authorization": f"Bearer {OPENROUTER_API_KEY}",
@@ -59,7 +60,7 @@ def webhook():
         })
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))  # Fix indentation here
+    port = int(os.environ.get("PORT", 10000))  # Fix indentation here
     app.run(host="0.0.0.0", port=port)
 
    
