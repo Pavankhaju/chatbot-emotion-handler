@@ -14,13 +14,13 @@ def webhook():
     user_message = req_data['queryResult']['queryText']
 
     headers = {
-        "Authorization": f"Bearer {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}",
+        "Authorization": f"Bearer {OPENROUTER_API-KEY}",
         "Content-Type": "application/json"
     }
     
     payload = {
         "model": "openchat/openchat-3.5",
-        "messages": [
+        "messages": conversation_history [
             {"role": "system", "content": "You are a helpful and friendly assistant."},
             {"role": "user", "content": "Hello"},
             {"role": "assistant", "content": "Hi! How can I help you today?"},
