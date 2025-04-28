@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 load_dotenv()
 app = Flask(__name__)
 
-OPENROUTER_API_KEY = os.getenv("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")
+gemini_API_KEY = os.getenv("AIzaSyBiGGmdXVp2l7yikBbU_MQ97vG1jwnkasY")
 
 # Store conversations by session ID
 session_memory = {}
@@ -25,7 +25,7 @@ def webhook():
     session_memory[session_id].append({"role": "user", "content": user_message})
 
     headers = {
-        "Authorization": f"Bearer {OPENROUTER_API_KEY}",
+        "Authorization": f"Bearer {gemini_API_KEY}",
         "Content-Type": "application/json"
     }
 
