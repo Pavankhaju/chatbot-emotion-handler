@@ -1,2 +1,2 @@
-# OpenRouter API key
-OPENROUTER_API_KEY=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
+# gemini API key
+gemini_API_KEY="AIzaSyBiGGmdXVp2l7yikBbU_MQ97vG1jwnkasY"
