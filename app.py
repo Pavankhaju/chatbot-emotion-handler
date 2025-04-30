@@ -1,12 +1,10 @@
 from flask import Flask, request, jsonify
 import requests
-import os
 from dotenv import load_dotenv
 
 load_dotenv()
 app = Flask(__name__)
-
-gemini_API_KEY = os.getenv("AIzaSyBiGGmdXVp2l7yikBbU_MQ97vG1jwnkasY")
+openrouter_API_KEY = os.getenv("AIzaSyBiGGmdXVp2l7yikBbU_MQ97vG1jwnkasY")
 
 # Store conversations by session ID
 session_memory = {}
@@ -25,7 +23,7 @@ def webhook():
     session_memory[session_id].append({"role": "user", "content": user_message})
 
     headers = {
-        "Authorization": f"Bearer {gemini_API_KEY}",
+        "Authorization": f"Bearer {openrouter_API_KEY}",
         "Content-Type": "application/json"
     }
 
