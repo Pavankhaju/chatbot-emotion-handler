@@ -1,10 +1,11 @@
 from flask import Flask, request, jsonify
 import requests
+import os
 from dotenv import load_dotenv
 
 load_dotenv()
 app = Flask(__name__)
-openrouter_API_KEY = os.getenv("AIzaSyBiGGmdXVp2l7yikBbU_MQ97vG1jwnkasY")
+OPENROUTER_API_KEY = os.getenv("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")
 
 # Store conversations by session ID
 session_memory = {}
@@ -23,9 +24,10 @@ def webhook():
     session_memory[session_id].append({"role": "user", "content": user_message})
 
     headers = {
-        "Authorization": f"Bearer {openrouter_API_KEY}",
+        "Authorization": f"Bearer {OPENROUTER_API_KEY}",
         "Content-Type": "application/json"
     }
+    
 
     payload = {
         "model": "openchat/openchat-3.5",
@@ -38,6 +40,8 @@ def webhook():
 
         bot_reply = response.json()['choices'][0]['message']['content']
         session_memory[session_id].append({"role": "assistant", "content": bot_reply})
+        
+        print("bot reply:",bot_reply)
 
         return jsonify({"fulfillmentText": bot_reply})
     
