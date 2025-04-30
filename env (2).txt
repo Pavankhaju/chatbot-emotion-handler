@@ -1,2 +1,3 @@
-# gemini API key
-gemini_API_KEY="AIzaSyBiGGmdXVp2l7yikBbU_MQ97vG1jwnkasY"
+# OPENROUTER_API_KEY
+OPENROUTER_API_KEY = os.getenv("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")
+
