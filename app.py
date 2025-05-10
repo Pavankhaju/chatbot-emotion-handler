@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 app = Flask(__name__)
-OPENROUTER_API_KEY = os.getenv("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")
+OPENROUTER_API_KEY = os.getenv("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")
 
 # Store conversations by session ID
 session_memory = {}
