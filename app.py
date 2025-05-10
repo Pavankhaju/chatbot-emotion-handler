@@ -42,5 +42,5 @@ def webhook():
             "fulfillmentText": f"Error occurred: {str(e)}"
         })
 
-if__name__ == "__main+__":
+if__name__ == "__main__":
     app.run(debug=True)
