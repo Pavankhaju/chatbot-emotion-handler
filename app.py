@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-app = Flask(_name_)
+app = Flask(__name__)
 api_key = os.getenv("OPENROUTER_API_KEY")
 
 @app.route("/", methods=["POST"])
