@@ -8,8 +8,9 @@ load_dotenv()
 app = Flask(__name__)
 api_key = os.getenv("OPENROUTER_API_KEY")
 
-@app.route("/", methods=["POST"])
+@app.route("/webhook", methods=["POST"])
 def webhook():
+    
     try:
         body = request.get_json()
         user_message = body["queryResult"]["queryText"]
