@@ -10,7 +10,7 @@ OPENROUTER_API_KEY = os.getenv("sk-or-v1-c3215d92b8f6e86e87d72725a65fccaa80a0eb9
 # Store conversations by session ID
 session_memory = {}
 
-@app.route("/")
+@app.route('/webhook',)
 def home():
     return 'sarathi chatbot is live !'
 def webhook():
