@@ -6,7 +6,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = Flask(_name_)
-api_key = os.getenv("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")
+api_key = os.getenv("OPENROUTER_API_KEY")
 
 @app.route("/", methods=["POST"])
 def webhook():
