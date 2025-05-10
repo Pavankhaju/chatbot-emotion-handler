@@ -10,7 +10,9 @@ OPENROUTER_API_KEY = os.getenv("sk-or-v1-c3215d92b8f6e86e87d72725a65fccaa80a0eb9
 # Store conversations by session ID
 session_memory = {}
 
-@app.route("/webhook", methods=["POST"])
+@app.route("/")
+def home():
+    return 'sarathi chatbot is live !'
 def webhook():
     req_data = request.get_json()
     session_id = req_data['session']  # Dialogflow ka session ID
