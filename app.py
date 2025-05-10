@@ -6,19 +6,18 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = Flask(__name__)
-api_key = os.getenv("OPENROUTER_API_KEY")
 
-@app.route("/webhook", methods=["POST"])
+# Webhook route
+@app.route("/", methods=["POST"])  # <-- Yaha path sahi hona chahiye
 def webhook():
-    
     try:
         body = request.get_json()
         user_message = body["queryResult"]["queryText"]
 
-        # OpenRouter API Call
+        # OpenRouter API call (for emotional chatbot response)
         url = "https://openrouter.ai/api/v1/chat/completions"
         headers = {
-            "Authorization": f"Bearer {api_key}",
+            "Authorization": f"Bearer {os.getenv('OPENROUTER_API_KEY')}",
             "Content-Type": "application/json"
         }
         data = {
@@ -43,5 +42,5 @@ def webhook():
             "fulfillmentText": f"Error occurred: {str(e)}"
         })
 
-if __name__ == "__main__":
-    app.run()
+if__name__ == "__main+__":
+    app.run(debug=True)
